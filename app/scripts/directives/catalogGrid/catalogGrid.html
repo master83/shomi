@@ -1,0 +1,20 @@
+<div class="catalog">
+	<h4>Total Items: {{totalItems}}</h4>
+
+	<pagination></pagination>
+	<sortby></sortby>
+
+	<div class="row" ng-repeat="item in pageItems">
+    <div class="col-md-3 outer-cell" ng-repeat="cellItem in item">
+      <div class="cell">
+      	<div ng-repeat="image in cellItem.Item.Images|imageFilter:1" style="background-image:url({{image.ImageId}})" class="poster">
+      		<div class="details">
+      			<div>{{cellItem.Item.Title}}</div>
+      			<div>{{cellItem.Item.ReleaseYear}}</div>
+      			<div>{{cellItem.Item.RunTimeSec|toMinutes}} minutes</div>
+      		</div>
+      	</div>
+      </div>
+    </div>
+  </div>
+</div>
